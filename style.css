@@ -1,0 +1,60 @@
+.container{
+    width: 600px;
+    margin:20px auto;
+    padding:10px;
+    background-color: rgb(242, 246, 246);
+    height: 400px;
+    border: 2px solid blue;
+    border-radius: 10px;
+}
+.h1{
+    color: rgb(114, 11, 11);
+    text-align: center;
+}
+.form-div{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+h2{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.w{
+    text-align: center;
+    border-bottom: 2px solid;
+    border-color: rgb(161, 4, 4);
+    padding-bottom: 20px;
+    color: green;
+}
+.btn{
+    text-align: center;
+    margin-top: 40px;
+}
+/* .btn1{
+    color:white;
+    background-color: blueviolet;
+    padding:10px 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: medium;
+}
+.btn2{
+    color:white;
+    background-color: rgb(201, 7, 201);
+    padding:10px 10px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 20px;
+    font-size: medium;
+} */
+#submit{
+    background-color: white; 
+}
+#reset{
+    background-color: burlywood;
+}
+.player{
+    text-align: center;
+}
