@@ -1,7 +1,7 @@
 const btn1 = document.querySelector("#btn1")
 const btn2 = document.querySelector("#btn2")
 const submit = document.querySelector("#submit")
-const reset = document.querySelector("#reset")
+const resetB = document.querySelector("#reset")
 const winningPlayer = document.querySelector("#winner")
 const wScore = document.querySelector("#score")
 const input = document.querySelector("#input")
@@ -43,14 +43,30 @@ function identifyWinner() {
     }
 }
 
+function reset() {
+    winningScore = 5;
+    p1Elm = 0;
+    p2Elm = 0;
+    p2Turn = false;
+    p1Turn = true;
+    
+    // gameOver = false;
+    btn1.removeAttribute("disabled")
+    btn2.removeAttribute("disabled")
+    player1.textContent = p1Elm;
+    player2.textContent = p2Elm;
+    winningPlayer.textContent = '';
+    wScore.textContent = winningScore;
+    input.value = "";
+}
+
 wScore.textContent = winningScore;
 btn1.addEventListener("click", (e) => {
     if (p1Turn) {
         p1Elm++
     player1.textContent = p1Elm;
     identifyWinner()
-    // disabledButton()
-    
+   
         p1Turn = false
         p2Turn = true
         btn1.setAttribute("disabled", "disabled")
@@ -67,7 +83,6 @@ btn2.addEventListener("click", (e) => {
         p2Elm++
     player2.textContent = p2Elm;
     identifyWinner()
-    // disabledButton()
         p2Turn = false
         p1Turn = true
         btn2.setAttribute("disabled", "disabled")
@@ -81,25 +96,14 @@ btn2.addEventListener("click", (e) => {
 })
 
 
-
-
 submit.addEventListener("click", (e) => {
     e.preventDefault()
-    const inputValue = document.getElementById("input").value;
-    console.log(inputValue)
-    wScore.textContent = inputValue;
-
-
+    
+    const inputValue = +input.value;
+    reset()
+    winningScore = inputValue;
+    wScore.textContent = winningScore;
 })
-reset.addEventListener("click",(e)=> {
-    winningScore = 5;
-    p1Elm = 0;
-    p2Elm = 0;
-    gameOver = false;
-
-    btn1.removeAttribute("disabled")
-    btn2.removeAttribute("disabled")
-    player1.textContent = p1Elm;
-    player2.textContent = p2Elm;
-    winningPlayer.textContent= ''
+resetB.addEventListener("click",(e)=> {
+    reset()
 })
