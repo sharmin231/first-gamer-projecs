@@ -8,17 +8,18 @@ const input = document.querySelector("#input")
 const player1 = document.querySelector("#payer1")
 const player2 = document.querySelector("#payer2")
 
-// let score = 0;
+
 let winningScore = 5;
 let p1Elm = 0;
 let p2Elm = 0;
-let gameOver = false;
 let p1Turn = true;
 let p2Turn = false;
+// if (!p1Turn && !p2Turn) {
+//     btn1.setAttribute("disabled", "disabled")
+//     btn2.setAttribute("disabled", "disabled")
+// }
 
 
-// function updateScore() {
-//     return score++}
 
 function initialPlayerStart() {
     p1Turn = false;
@@ -38,8 +39,8 @@ function initialPlayerStart() {
         btn2.setAttribute("disabled", "disabled")
         btn1.removeAttribute("disabled")
     }
-}
-// initialPlayerStart()
+} 
+initialPlayerStart()
 
 function disabledButton() {
     if (p1Elm === winningScore || p2Elm === winningScore) {
@@ -67,17 +68,20 @@ function reset() {
     winningScore = 5;
     p1Elm = 0;
     p2Elm = 0;
-    p2Turn = false;
-    p1Turn = true;
-    
-    // gameOver = false;
-    btn1.removeAttribute("disabled")
-    btn2.removeAttribute("disabled")
+    // p2Turn = false;
+    // p1Turn = false;
+    // if (!p1Turn && !p2Turn) {
+    //     btn1.setAttribute("disabled", "disabled")
+    //     btn2.setAttribute("disabled", "disabled")
+    // }
+    // btn1.removeAttribute("disabled")
+    // btn2.removeAttribute("disabled")
     player1.textContent = p1Elm;
     player2.textContent = p2Elm;
     winningPlayer.textContent = '';
     wScore.textContent = winningScore;
     input.value = "";
+    initialPlayerStart()
 }
 
 wScore.textContent = winningScore;
