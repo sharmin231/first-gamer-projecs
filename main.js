@@ -100,7 +100,15 @@ submit.addEventListener("click", (e) => {
     e.preventDefault()
     
     const inputValue = +input.value;
-    reset()
+    if (inputValue == "" || Number(inputValue) !== Number(inputValue) ||inputValue <= 0) {
+        console.log("invalid number")
+        alert("please enter a valid number")
+        // winningScore = 5
+        // wScore.textContent = winningScore
+        reset() 
+        return
+    }
+    reset() 
     winningScore = inputValue;
     wScore.textContent = winningScore;
 })
