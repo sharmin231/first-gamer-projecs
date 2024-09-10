@@ -18,9 +18,10 @@ let p2Turn = false;
 //     btn1.setAttribute("disabled", "disabled")
 //     btn2.setAttribute("disabled", "disabled")
 // }
+//-------------- above initialize variables-------------
 
 
-
+// -------------------function start here-----------------------
 function initialPlayerStart() {
     p1Turn = false;
     p2Turn = false;
@@ -40,6 +41,7 @@ function initialPlayerStart() {
         btn1.removeAttribute("disabled")
     }
 } 
+
 initialPlayerStart()
 
 function disabledButton() {
@@ -82,8 +84,21 @@ function reset() {
     wScore.textContent = winningScore;
     input.value = "";
     initialPlayerStart()
+    randomScore()
 }
 
+function randomScore() {
+    const random = Math.floor(Math.random() * (9 - 2 + 1)) + 2;
+    winningScore = random;
+    wScore.textContent = winningScore;
+}
+randomScore()
+
+// ---------------function ends here----------------
+
+// -----------------eventhandler adding from here------------
+
+// ==== btn1 event handler======
 wScore.textContent = winningScore;
 btn1.addEventListener("click", (e) => {
     if (p1Turn) {
@@ -102,6 +117,8 @@ btn1.addEventListener("click", (e) => {
     disabledButton()
 })
 
+
+// =========btn2 event handler=========
 btn2.addEventListener("click", (e) => {
     if (p2Turn) {
         p2Elm++
@@ -119,7 +136,7 @@ btn2.addEventListener("click", (e) => {
 
 })
 
-
+// ==========submit eventhandler==========
 submit.addEventListener("click", (e) => {
     e.preventDefault()
     
@@ -137,6 +154,9 @@ submit.addEventListener("click", (e) => {
     winningScore = inputValue;
     wScore.textContent = winningScore;
 })
+
+
+// ==========reset eventhandler==========
 resetB.addEventListener("click",(e)=> {
     reset()
 })
