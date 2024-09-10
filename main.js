@@ -20,6 +20,26 @@ let p2Turn = false;
 // function updateScore() {
 //     return score++}
 
+function initialPlayerStart() {
+    p1Turn = false;
+    p2Turn = false;
+    const players = ["player1", "player2"]
+    const randomIndex = Math.floor(Math.random() * players.length);
+    const player = players[randomIndex];
+    if (player === players[0]) {
+        p1Turn = true
+    } else {
+        p2Turn = true
+    }
+    if (!p1Turn) {
+        btn1.setAttribute("disabled", "disabled")
+        btn2.removeAttribute("disabled")
+    } else if(!p2Turn){
+        btn2.setAttribute("disabled", "disabled")
+        btn1.removeAttribute("disabled")
+    }
+}
+// initialPlayerStart()
 
 function disabledButton() {
     if (p1Elm === winningScore || p2Elm === winningScore) {
@@ -109,9 +129,11 @@ submit.addEventListener("click", (e) => {
         return
     }
     reset() 
+    initialPlayerStart()
     winningScore = inputValue;
     wScore.textContent = winningScore;
 })
 resetB.addEventListener("click",(e)=> {
     reset()
 })
+// initialPlayerStart()
